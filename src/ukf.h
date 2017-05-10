@@ -74,6 +74,10 @@ public:
   ///* the current NIS for laser
   double NIS_laser_;
 
+  ///* Variables needed
+  // Augmented Sigma Points Matrix
+  MatrixXd Xsig_aug;
+
   /**
    * Constructor
    */
@@ -89,6 +93,18 @@ public:
    * @param meas_package The latest measurement data of either radar or laser
    */
   void ProcessMeasurement(MeasurementPackage meas_package);
+
+    /**
+   * Initialize
+   * @param meas_package Initialize all the variables
+   */
+  void Initialize(MeasurementPackage meas_package);
+
+      /**
+   * AugmentSigmaPoints
+   * @param meas_package Calculates the augmented sigma points
+   */
+  void AugmentSigmaPoints(MeasurementPackage meas_package);
 
   /**
    * Prediction Predicts sigma points, the state, and the state covariance
