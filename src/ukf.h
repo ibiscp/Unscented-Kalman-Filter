@@ -33,7 +33,7 @@ public:
     //MatrixXd Xsig_pred_;
 
     ///* time when the state is true, in us
-    long long time_us_;
+    long long previous_timestamp_;
 
     ///* Process noise standard deviation longitudinal acceleration in m/s^2
     double std_a_;
@@ -141,13 +141,17 @@ public:
      * Updates the state and the state covariance matrix using a laser measurement
      * @param meas_package The measurement at k+1
      */
-    void UpdateLidar(MeasurementPackage meas_package);
+    void UpdateLidar(MeasurementPackage meas_package, VectorXd &z_pred, MatrixXd &Tc, MatrixXd &S);
 
     /**
      * Updates the state and the state covariance matrix using a radar measurement
      * @param meas_package The measurement at k+1
      */
-    void UpdateRadar(MeasurementPackage meas_package);
+    void UpdateRadar(MeasurementPackage meas_package, VectorXd &z_pred, MatrixXd &Tc, MatrixXd &S);
+
+    void PredictLidarMeasurement(VectorXd &z_out, MatrixXd &S_out, MatrixXd &Tc_out);
+
+    void PredictRadarMeasurement(VectorXd &z_out, MatrixXd &S_out, MatrixXd &Tc_out);
 };
 
 #endif /* UKF_H */
