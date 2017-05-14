@@ -30,7 +30,7 @@ public:
     MatrixXd P_;
 
     ///* predicted sigma points matrix
-    //MatrixXd Xsig_pred_;
+    MatrixXd Xsig_pred_;
 
     ///* time when the state is true, in us
     long long previous_timestamp_;
@@ -57,7 +57,7 @@ public:
     double std_radrd_ ;
 
     ///* Weights of sigma points
-    //VectorXd weights_;
+    VectorXd weights_;
 
     ///* State dimension
     int n_x_;
@@ -75,20 +75,12 @@ public:
     double NIS_laser_;
 
     ///* Variables needed
-    // Augmented Sigma Points Matrix
-    MatrixXd Xsig_aug;
+    //set radar measurement dimension
+    int n_zrad_;
 
-    //create matrix with predicted sigma points as columns
-    MatrixXd Xsig_pred;
+    //set laser measurement dimension
+    int n_zlas_;
 
-    //create vector for weights
-    VectorXd weights;
-
-    //create vector for predicted state
-    VectorXd x;
-
-    //create covariance matrix for prediction
-    MatrixXd P;
 
     /**
      * Constructor
@@ -128,7 +120,7 @@ public:
     * Predict Mean and Covariance
     * @param {MeasurementPackage} meas_package
     */
-    void PredictMeanAndCovariance(MatrixXd &Xsig_pred, VectorXd &weights);
+    void PredictMeanAndCovariance(MatrixXd &Xsig_pred, VectorXd &x_pred, MatrixXd &P_pred);
 
     /**
      * Prediction Predicts sigma points, the state, and the state covariance
