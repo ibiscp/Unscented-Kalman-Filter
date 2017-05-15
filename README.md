@@ -3,6 +3,28 @@ Self-Driving Car Engineer Nanodegree Program
 
 ---
 
+## Output
+
+**RMSE Table**
+
+<center>
+
+|            |   Output  |
+|------------|:---------:|
+| position x |  0.119365 |
+| position y |  0.112674 |
+| speed x    |  0.344886 |
+| speed y    |  0.286583 |
+
+</center>
+
+**<p align="center">Output 1</p>**
+<p align="center"><img src="images/position.PNG"/></p>
+
+**<p align="center">Output 2</p>**
+<p align="center"><img src="images/NIS.PNG"/></p>
+
+
 ## Dependencies
 
 * cmake >= v3.5
