@@ -9,12 +9,12 @@ Self-Driving Car Engineer Nanodegree Program
 
 <center>
 
-|            |   Output  |
-|------------|:---------:|
-| position x |  0.119365 |
-| position y |  0.112674 |
-| speed x    |  0.344886 |
-| speed y    |  0.286583 |
+|            |   Output   |
+|------------|:----------:|
+| position x |  0.0699812 |
+| position y |  0.0837202 |
+| speed x    |  0.344053  |
+| speed y    |  0.228879  |
 
 </center>
 

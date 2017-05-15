@@ -344,17 +344,10 @@ void UKF::Prediction(double delta_t) {
     AugmentSigmaPoints(Xsig_aug);
 
     /// Predict sigma points
-    static MatrixXd Xsig_pred = MatrixXd(n_x_, 2 * n_aug_ + 1);
-    PredictSigmaPoints(Xsig_aug, delta_t, Xsig_pred);
+    PredictSigmaPoints(Xsig_aug, delta_t, Xsig_pred_);
 
     /// Predict mean and covariance
-    static VectorXd x_pred = VectorXd(n_x_);
-    static MatrixXd P_pred = MatrixXd(n_x_, n_x_);
-    PredictMeanAndCovariance(Xsig_pred, x_pred, P_pred);
-
-    x_ = x_pred;
-    P_ = P_pred;
-    Xsig_pred_ = Xsig_pred;
+    PredictMeanAndCovariance(Xsig_pred_, x_, P_);
 }
 
 void UKF::PredictRadarMeasurement(VectorXd &z_pred, MatrixXd &S, MatrixXd &Tc) {
@@ -381,7 +374,8 @@ void UKF::PredictRadarMeasurement(VectorXd &z_pred, MatrixXd &S, MatrixXd &Tc) {
         }
 
         // measurement model
-        Zsig(0,i) = sqrt(p_x*p_x + p_y*p_y);                        //r
+        Zsig(0
+             ,i) = sqrt(p_x*p_x + p_y*p_y);                        //r
         Zsig(1,i) = atan2(p_y,p_x);                                 //phi
         Zsig(2,i) = (p_x*v1 + p_y*v2 ) / sqrt(p_x*p_x + p_y*p_y);   //r_dot
     }
