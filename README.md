@@ -19,10 +19,10 @@ Self-Driving Car Engineer Nanodegree Program
 </center>
 
 **<p align="center">Output 1</p>**
-<p align="center"><img src="images/position.PNG"/></p>
+<p align="center"><img src="images/position.png"/></p>
 
 **<p align="center">Output 2</p>**
-<p align="center"><img src="images/NIS.PNG"/></p>
+<p align="center"><img src="images/NIS.png"/></p>
 
 
 ## Dependencies
